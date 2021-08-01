@@ -11,7 +11,6 @@ void main() {
 }
 
 void printCharacter(Character character) {
-  character.modifyHealth(-100);
   print(' ');
   print(character.toString());
 }
