@@ -1,9 +1,9 @@
 void main() {
-  var human = Race('Human', 0.7);
+  var human = Race('Human', 0.1, 0.2);
   var player = Character(human, 'SmallDickChungus');
-  var vampire = Race('Vampire', 0.9);
+  var vampire = Race('Vampire', 0.4, 0.6);
   var player2 = Character(vampire, 'BuffiesBitch');
-  var werewolf = Race('Werewolf', 1.0);
+  var werewolf = Race('Werewolf', 0.6, 0.9);
   var player3 = Character(werewolf, 'ChadFurry');
   printCharacter(player);
   printCharacter(player2);
@@ -44,12 +44,13 @@ class Character {
 
 class Race {
   final String raceName;
-  final double damageModifier;
+  final double physicalDamageModifier;
+  final double silverDamageModifier;
 
-  Race(this.raceName, this.damageModifier);
+  Race(this.raceName, this.physicalDamageModifier, this.silverDamageModifier);
 
   @override
   String toString() {
-    return 'raceName $raceName\ndamageModifier $damageModifier';
+    return 'raceName $raceName\nphsysicalDamageModifier $physicalDamageModifier\nsilverDamageModifier $silverDamageModifier';
   }
 }
