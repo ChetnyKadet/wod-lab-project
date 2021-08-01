@@ -1,10 +1,17 @@
+import 'dart:html';
+
 void main() {
+  var autoAttack = Ability(10, 15, 'Auto Attack');
   var human = Race('Human', 0.1, 0.2);
-  var player = Character(human, 'SmallDickChungus');
-  var vampire = Race('Vampire', 0.3, 0.6);
-  var player2 = Character(vampire, 'BuffiesBitch');
+  var player = Character(human, 'SmallDickChungus', [autoAttack]);
+  var vampire = Race(
+    'Vampire',
+    0.3,
+    0.6,
+  );
+  var player2 = Character(vampire, 'BuffiesBitch', [autoAttack]);
   var werewolf = Race('Werewolf', 0.7, 0.9);
-  var player3 = Character(werewolf, 'ChadFurry');
+  var player3 = Character(werewolf, 'ChadFurry', [autoAttack]);
   printCharacter(player);
   printCharacter(player2);
   printCharacter(player3);
@@ -22,7 +29,8 @@ class Character {
   int currentHealth = 100;
   bool isDead = false;
   final Race race;
-  Character(this.race, this.name);
+  final List<Ability> spellbook;
+  Character(this.race, this.name, this.spellbook);
 
   void modifyHealth(int amount) {
     currentHealth += amount;
@@ -51,5 +59,17 @@ class Race {
   @override
   String toString() {
     return 'raceName $raceName\nphsysicalDamageModifier $physicalDamageModifier\nsilverDamageModifier $silverDamageModifier';
+  }
+}
+
+class Ability {
+  final double physicalDamage;
+  final double silverDamage;
+  final String name;
+
+  Ability(this.physicalDamage, this.silverDamage, this.name);
+  @override
+  String toString() {
+    return 'name $name\nphysicialDamage $physicalDamage\nsilverDamage $silverDamage';
   }
 }
