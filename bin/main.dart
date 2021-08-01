@@ -1,5 +1,3 @@
-import 'dart:html';
-
 void main() {
   var autoAttack = Ability(10, 15, 'Auto Attack');
   var human = Race('Human', 0.1, 0.2);
@@ -12,15 +10,9 @@ void main() {
   var player2 = Character(vampire, 'BuffiesBitch', [autoAttack]);
   var werewolf = Race('Werewolf', 0.7, 0.9);
   var player3 = Character(werewolf, 'ChadFurry', [autoAttack]);
-  printCharacter(player);
-  printCharacter(player2);
-  printCharacter(player3);
 }
 
-void printCharacter(Character character) {
-  print(' ');
-  print(character.toString());
-}
+
 
 class Character {
   static final int minHealth = 0;
@@ -41,6 +33,13 @@ class Character {
       currentHealth = minHealth;
       isDead = true;
     }
+  }
+
+  void attack(int abilityIndex, Character character) {
+    character.modifyHealth((spellbook[abilityIndex].physicalDamage *
+            character.race.physicalDamageModifier +
+        spellbook[abilityIndex].silverDamage *
+            character.race.silverDamageModifier).round());
   }
 
   @override
