@@ -1,0 +1,14 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "wod_lab_project",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.13"
+    }
+  ],
+  "generated": "2021-08-01T15:18:40.215756Z",
+  "generator": "pub",
+  "generatorVersion": "2.13.4"
+}

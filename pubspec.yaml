@@ -1,0 +1,9 @@
+name: wod_lab_project
+version: 0.0.1
+publish_to: none
+description: >-
+  This is my lab for learning programming by creating World of Darkness game system
+environment:
+  sdk: '>=2.13.0 <3.0.0'
+executables:
+  main: lib/main.dart
