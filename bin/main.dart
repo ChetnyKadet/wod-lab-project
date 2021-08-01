@@ -1,18 +1,18 @@
 void main() {
   var autoAttack = Ability(10, 15, 'Auto Attack');
-  var human = Race('Human', 0.1, 0.2);
+  var human = Race('Human', 0.5, 0.6);
   var player = Character(human, 'SmallDickChungus', [autoAttack]);
   var vampire = Race(
     'Vampire',
     0.3,
-    0.6,
+    0.5,
   );
   var player2 = Character(vampire, 'BuffiesBitch', [autoAttack]);
-  var werewolf = Race('Werewolf', 0.7, 0.9);
+  var werewolf = Race('Werewolf', 0.1, 0.6);
   var player3 = Character(werewolf, 'ChadFurry', [autoAttack]);
+  player2.attack(0, player);
+  print(player);
 }
-
-
 
 class Character {
   static final int minHealth = 0;
@@ -36,10 +36,11 @@ class Character {
   }
 
   void attack(int abilityIndex, Character character) {
-    character.modifyHealth((spellbook[abilityIndex].physicalDamage *
-            character.race.physicalDamageModifier +
-        spellbook[abilityIndex].silverDamage *
-            character.race.silverDamageModifier).round());
+    character.modifyHealth(-(spellbook[abilityIndex].physicalDamage *
+                character.race.physicalDamageModifier +
+            spellbook[abilityIndex].silverDamage *
+                character.race.silverDamageModifier)
+        .round());
   }
 
   @override
