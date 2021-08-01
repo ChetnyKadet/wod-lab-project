@@ -1,22 +1,29 @@
 void main() {
   var human = Race('Human', 0.7);
-  var player = Character(human);
-  var player = Character(vampire);
-  var player = Character(werewolf);
+  var player = Character(human, 'SmallDickChungus');
   var vampire = Race('Vampire', 0.9);
+  var player2 = Character(vampire, 'BuffiesBitch');
   var werewolf = Race('Werewolf', 1.0);
-  print(player.toString());
-  player.modifyHealth(-100);
-  print(player.toString());
+  var player3 = Character(werewolf, 'ChadFurry');
+  printCharacter(player);
+  printCharacter(player2);
+  printCharacter(player3);
+}
+
+void printCharacter(Character character) {
+  character.modifyHealth(-100);
+  print(' ');
+  print(character.toString());
 }
 
 class Character {
   static final int minHealth = 0;
+  final String name;
   int maxHealth = 200;
   int currentHealth = 100;
   bool isDead = false;
   final Race race;
-  Character(this.race);
+  Character(this.race, this.name);
 
   void modifyHealth(int amount) {
     currentHealth += amount;
