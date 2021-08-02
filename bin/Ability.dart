@@ -10,4 +10,4 @@ class Ability {
   }
 }
 
-const autoAttack = Ability(10, 15, 'Auto Attack');
+const autoAttack = Ability(10, 0, 'Auto Attack');

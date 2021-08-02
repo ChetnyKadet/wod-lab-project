@@ -1,31 +1,42 @@
+import 'equipment.dart';
 import 'stats.dart';
 import 'race.dart';
 import 'ability.dart';
 
 class Character {
   static final int minHealth = 0;
+  static final int baseHealth = 100;
   final String name;
-  int maxHealth = 200;
+  int maxHealth;
   int currentHealth = 100;
   bool isDead = false;
   final Race race;
   final List<Ability> spellbook;
-  Character(this.race, this.name, this.spellbook);
+  final CharacterEquipment characterEquipment;
 
-  Character.humanPlayer(String name)
+  Character.humanPlayer(String name, CharacterEquipment characterEquipment)
       : this.race = human,
         this.name = name,
-        this.spellbook = [autoAttack];
+        this.characterEquipment = characterEquipment,
+        this.spellbook = [autoAttack],
+        this.maxHealth = (baseHealth * human.healthModifier).round(),
+        this.currentHealth = (baseHealth * human.healthModifier).round();
 
-  Character.vampirePlayer(String name)
+  Character.vampirePlayer(String name, CharacterEquipment characterEquipment)
       : this.race = vampire,
         this.name = name,
-        this.spellbook = [autoAttack];
-  
-  Character.werewolfPlayer(String name)
+        this.characterEquipment = characterEquipment,
+        this.spellbook = [autoAttack],
+        this.maxHealth = (baseHealth * vampire.healthModifier).round(),
+        this.currentHealth = (baseHealth * vampire.healthModifier).round();
+
+  Character.werewolfPlayer(String name, CharacterEquipment characterEquipment)
       : this.race = werewolf,
         this.name = name,
-        this.spellbook = [autoAttack];
+        this.characterEquipment =characterEquipment,
+        this.spellbook = [autoAttack],
+        this.maxHealth = (baseHealth * werewolf.healthModifier).round(),
+        this.currentHealth = (baseHealth * werewolf.healthModifier).round();
 
   void modifyHealth(int amount) {
     currentHealth += amount;
