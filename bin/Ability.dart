@@ -3,9 +3,11 @@ class Ability {
   final double silverDamage;
   final String name;
 
-  Ability(this.physicalDamage, this.silverDamage, this.name);
+  const Ability(this.physicalDamage, this.silverDamage, this.name);
   @override
   String toString() {
     return 'name $name\nphysicialDamage $physicalDamage\nsilverDamage $silverDamage';
   }
 }
+
+const autoAttack = Ability(10, 15, 'Auto Attack');

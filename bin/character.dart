@@ -1,5 +1,7 @@
-import 'Damage.dart';
-import 'Ability.dart';
+import 'stats.dart';
+import 'race.dart';
+import 'ability.dart';
+
 class Character {
   static final int minHealth = 0;
   final String name;
@@ -9,6 +11,21 @@ class Character {
   final Race race;
   final List<Ability> spellbook;
   Character(this.race, this.name, this.spellbook);
+
+  Character.humanPlayer(String name)
+      : this.race = human,
+        this.name = name,
+        this.spellbook = [autoAttack];
+
+  Character.vampirePlayer(String name)
+      : this.race = vampire,
+        this.name = name,
+        this.spellbook = [autoAttack];
+  
+  Character.werewolfPlayer(String name)
+      : this.race = werewolf,
+        this.name = name,
+        this.spellbook = [autoAttack];
 
   void modifyHealth(int amount) {
     currentHealth += amount;
