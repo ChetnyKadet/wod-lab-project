@@ -1,7 +1,4 @@
 import 'character.dart';
-import 'race.dart';
-import 'ability.dart';
-import 'stats.dart';
 
 void main() {
   var player = Character.humanPlayer('SmallDickChungus');
