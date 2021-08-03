@@ -21,21 +21,24 @@ class Character {
         this.name = name,
         this.characterEquipment = characterEquipment,
         this.spellbook = [autoAttack],
-        this.currentHealth = (baseHealth * human.healthModifier).round()+ characterEquipment.stamina*10;
+        this.currentHealth = (baseHealth * human.healthModifier).round() +
+            characterEquipment.stamina * 10;
 
   Character.vampirePlayer(String name, CharacterEquipment characterEquipment)
       : this.race = vampire,
         this.name = name,
         this.characterEquipment = characterEquipment,
         this.spellbook = [autoAttack, claw],
-        this.currentHealth = (baseHealth * vampire.healthModifier).round()+ characterEquipment.stamina*10;
+        this.currentHealth = (baseHealth * vampire.healthModifier).round() +
+            characterEquipment.stamina * 10;
 
   Character.werewolfPlayer(String name, CharacterEquipment characterEquipment)
       : this.race = werewolf,
         this.name = name,
         this.characterEquipment = characterEquipment,
         this.spellbook = [autoAttack, claw],
-        this.currentHealth = (baseHealth * werewolf.healthModifier).round()+ characterEquipment.stamina*10;
+        this.currentHealth = (baseHealth * werewolf.healthModifier).round() +
+            characterEquipment.stamina * 10;
 
   void modifyHealth(int amount) {
     currentHealth += amount;
@@ -49,11 +52,14 @@ class Character {
   }
 
   void attack(int abilityIndex, Character character) {
-    character.modifyHealth(-(spellbook[abilityIndex].physicalDamage *
+    final damage = -(spellbook[abilityIndex].physicalDamage *
                 character.race.physicalDamageModifier +
             spellbook[abilityIndex].silverDamage *
                 character.race.silverDamageModifier)
-        .round());
+        .round();
+    print(
+        '${this.name} attacking ${character.name} with ${spellbook[abilityIndex].name} for $damage health points');
+    character.modifyHealth(damage);
   }
 
   @override
