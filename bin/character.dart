@@ -7,7 +7,9 @@ class Character {
   static final int minHealth = 0;
   static final int baseHealth = 100;
   final String name;
-  int maxHealth;
+  int get maxHealth =>
+      (baseHealth * race.healthModifier).round() +
+      characterEquipment.stamina * 10;
   int currentHealth = 100;
   bool isDead = false;
   final Race race;
@@ -19,24 +21,21 @@ class Character {
         this.name = name,
         this.characterEquipment = characterEquipment,
         this.spellbook = [autoAttack],
-        this.maxHealth = (baseHealth * human.healthModifier).round(),
-        this.currentHealth = (baseHealth * human.healthModifier).round();
+        this.currentHealth = (baseHealth * human.healthModifier).round()+ characterEquipment.stamina*10;
 
   Character.vampirePlayer(String name, CharacterEquipment characterEquipment)
       : this.race = vampire,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack],
-        this.maxHealth = (baseHealth * vampire.healthModifier).round(),
-        this.currentHealth = (baseHealth * vampire.healthModifier).round();
+        this.spellbook = [autoAttack, claw],
+        this.currentHealth = (baseHealth * vampire.healthModifier).round()+ characterEquipment.stamina*10;
 
   Character.werewolfPlayer(String name, CharacterEquipment characterEquipment)
       : this.race = werewolf,
         this.name = name,
-        this.characterEquipment =characterEquipment,
-        this.spellbook = [autoAttack],
-        this.maxHealth = (baseHealth * werewolf.healthModifier).round(),
-        this.currentHealth = (baseHealth * werewolf.healthModifier).round();
+        this.characterEquipment = characterEquipment,
+        this.spellbook = [autoAttack, claw],
+        this.currentHealth = (baseHealth * werewolf.healthModifier).round()+ characterEquipment.stamina*10;
 
   void modifyHealth(int amount) {
     currentHealth += amount;

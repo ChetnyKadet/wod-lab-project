@@ -1,13 +1,10 @@
-import 'ability.dart';
 import 'character.dart';
 import 'equipment.dart';
-import 'race.dart';
-import 'stats.dart';
 void main() {
-  var player = Character.humanPlayer('SmallDickChungus', );
-  var player2 = Character.vampirePlayer('BuffiesBitch', );
-  var player3 = Character.werewolfPlayer('ChadFurry', );
+  var player = Character.humanPlayer('SmallDickChungus', CharacterEquipment(helmet, vest));
+  var player2 = Character.vampirePlayer('BuffiesBitch', CharacterEquipment(empty, vest) );
+  var player3 = Character.werewolfPlayer('ChadFurry',CharacterEquipment(empty, empty) );
 
-  player3.attack(0, player);
-  print(player3);
+  player3.attack(1, player);
+  print(player);
 }
