@@ -27,4 +27,9 @@ void turn(List<Character> players) {
   }
   final attacker = candidate.first;
   print('Selected attacker is $attacker');
+  var abilityNames = '';
+  for (var ability in attacker.spellbook) {
+  abilityNames += '${ability.name}, ';
+  }
+  print('Avalaible abilities are $abilityNames');
 }
