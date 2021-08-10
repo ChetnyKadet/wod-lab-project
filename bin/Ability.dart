@@ -12,3 +12,5 @@ class Ability {
 
 const autoAttack = Ability(10, 0, 'Auto Attack');
 const claw = Ability(15, 0, 'Claw');
+const bite = Ability(20, 0, 'Bite');
+const silverShot = Ability(5, 10, 'Silver Shot');

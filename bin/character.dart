@@ -20,7 +20,7 @@ class Character {
       : this.race = human,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack],
+        this.spellbook = [autoAttack, silverShot],
         this.currentHealth = (baseHealth * human.healthModifier).round() +
             characterEquipment.stamina * 10;
 
@@ -28,7 +28,7 @@ class Character {
       : this.race = vampire,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, claw],
+        this.spellbook = [autoAttack, claw, bite, silverShot],
         this.currentHealth = (baseHealth * vampire.healthModifier).round() +
             characterEquipment.stamina * 10;
 
@@ -36,7 +36,7 @@ class Character {
       : this.race = werewolf,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, claw],
+        this.spellbook = [autoAttack, claw, bite, silverShot],
         this.currentHealth = (baseHealth * werewolf.healthModifier).round() +
             characterEquipment.stamina * 10;
 
