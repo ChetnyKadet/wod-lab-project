@@ -1,3 +1,4 @@
+import 'ability.dart';
 import 'character.dart';
 import 'equipment.dart';
 import 'dart:io';
@@ -29,7 +30,28 @@ void turn(List<Character> players) {
   print('Selected attacker is $attacker');
   var abilityNames = '';
   for (var ability in attacker.spellbook) {
-  abilityNames += '${ability.name}, ';
+    abilityNames += '${ability.name}, ';
   }
   print('Avalaible abilities are $abilityNames');
+}
+
+void select(List<Ability> spellbook) {
+  var abilityNames = '';
+  for (var ability in spellbook) {
+    abilityNames += '${ability.name} ';
+  }
+  String selectedAbility = stdin.readLineSync() ?? '';
+  final candidate =
+      spellbook.where((element) => element.name == selectedAbility);
+  if (candidate.isEmpty) {
+    print('Ability not found');
+    return;
+  }
+  final ability = candidate.first;
+  print('Selected ability is $abilityNames');
+  var spellbook = '';
+  for (var ability in ability.spellbook) {
+    abilityNames += '${ability.name}, ';
+  }
+  print('Avalaible targets are $playerNames');
 }
