@@ -22,36 +22,45 @@ void turn(List<Character> players) {
   print('Select player from list: $playerNames');
   String selectedPlayer = stdin.readLineSync() ?? '';
   final candidate = players.where((element) => element.name == selectedPlayer);
+
   if (candidate.isEmpty) {
     print('Player not found');
     return;
   }
   final attacker = candidate.first;
   print('Selected attacker is $attacker');
-  var abilityNames = '';
-  for (var ability in attacker.spellbook) {
-    abilityNames += '${ability.name}, ';
+  final ability = select(attacker.spellbook);
+  if (ability == null) {
+    return;
   }
-  print('Avalaible abilities are $abilityNames');
+  print('Select your target ($playerNames)');
+  String selectedTarget = stdin.readLineSync() ?? '';
+  final targetCandidate =
+      players.where((element) => element.name == selectedTarget);
+  Character target;
+  if (targetCandidate.isEmpty) {
+    target = attacker;
+  } else {
+    target = targetCandidate.first;
+  }
+  print('Selected target is ${target.name}');
+  attacker.useAbility(ability, target);
 }
 
-void select(List<Ability> spellbook) {
+Ability? select(List<Ability> spellbook) {
   var abilityNames = '';
   for (var ability in spellbook) {
     abilityNames += '${ability.name} ';
   }
+  print('Avalaible abilities are $abilityNames');
   String selectedAbility = stdin.readLineSync() ?? '';
   final candidate =
       spellbook.where((element) => element.name == selectedAbility);
   if (candidate.isEmpty) {
     print('Ability not found');
-    return;
+    return null;
   }
   final ability = candidate.first;
-  print('Selected ability is $abilityNames');
-  var spellbook = '';
-  for (var ability in ability.spellbook) {
-    abilityNames += '${ability.name}, ';
-  }
-  print('Avalaible targets are $playerNames');
+  print('Selected ability is ${ability.name}');
+  return ability;
 }

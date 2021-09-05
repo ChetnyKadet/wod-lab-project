@@ -51,14 +51,14 @@ class Character {
     }
   }
 
-  void attack(int abilityIndex, Character character) {
-    final damage = -(spellbook[abilityIndex].physicalDamage *
+  void useAbility(Ability ability, Character character) {
+    final damage = -(ability.physicalDamage *
                 character.race.physicalDamageModifier +
-            spellbook[abilityIndex].silverDamage *
+            ability.silverDamage *
                 character.race.silverDamageModifier)
         .round();
     print(
-        '${this.name} attacking ${character.name} with ${spellbook[abilityIndex].name} for $damage health points');
+        '${this.name} attacking ${character.name} with ${ability.name} for $damage health points');
     character.modifyHealth(damage);
   }
 
