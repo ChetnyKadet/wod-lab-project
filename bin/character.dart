@@ -1,7 +1,7 @@
 import 'equipment.dart';
 import 'stats.dart';
 import 'race.dart';
-import 'ability.dart';
+import 'damageAbility.dart';
 
 class Character {
   static final int minHealth = 0;
