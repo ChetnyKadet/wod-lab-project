@@ -1,4 +1,4 @@
-import 'damageAbility.dart';
+import 'abilities.dart';
 import 'character.dart';
 import 'equipment.dart';
 import 'dart:io';

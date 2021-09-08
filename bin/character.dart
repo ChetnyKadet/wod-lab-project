@@ -1,7 +1,7 @@
 import 'equipment.dart';
 import 'stats.dart';
 import 'race.dart';
-import 'damageAbility.dart';
+import 'abilities.dart';
 
 class Character {
   static final int minHealth = 0;
@@ -20,7 +20,7 @@ class Character {
       : this.race = human,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, silverShot],
+        this.spellbook = [autoAttack, silverShot, healingMeds],
         this.currentHealth = (baseHealth * human.healthModifier).round() +
             characterEquipment.stamina * 10;
 
@@ -28,7 +28,7 @@ class Character {
       : this.race = vampire,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, claw, bite, silverShot],
+        this.spellbook = [autoAttack, claw, bite, silverShot, drainLife],
         this.currentHealth = (baseHealth * vampire.healthModifier).round() +
             characterEquipment.stamina * 10;
 
@@ -36,7 +36,7 @@ class Character {
       : this.race = werewolf,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, claw, bite, silverShot],
+        this.spellbook = [autoAttack, claw, bite, silverShot, spiritFlesh],
         this.currentHealth = (baseHealth * werewolf.healthModifier).round() +
             characterEquipment.stamina * 10;
 
