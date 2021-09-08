@@ -61,7 +61,7 @@ class Character {
         '${this.name} attacking ${character.name} with ${ability.name} for $damage health points');
     character.modifyHealth(damage);
     final healDamage = (ability.healDamage *
-                character.race.healthModifier)
+                character.race.healingModifier)
         .round();
     print(
         '${this.name} healing ${character.name} with ${ability.name} for $healDamage health points');
