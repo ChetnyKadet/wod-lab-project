@@ -52,24 +52,13 @@ class Character {
   }
 
   void useAbility(Ability ability, Character character) {
-    final damage = -(ability.physicalDamage *
-                character.race.physicalDamageModifier +
-            ability.silverDamage *
-                character.race.silverDamageModifier)
-        .round();
-    print(
-        '${this.name} attacking ${character.name} with ${ability.name} for $damage health points');
-    character.modifyHealth(damage);
-    final healDamage = (ability.healDamage *
-                character.race.healingModifier)
-        .round();
-    print(
-        '${this.name} healing ${character.name} with ${ability.name} for $healDamage health points');
-    character.modifyHealth(damage);
+    ability.use(this, character);
+    print('Attacker: ${this.toString()}');
+    print('Target: ${character.toString()}');
   }
 
   @override
   String toString() {
-    return 'maxHealth $maxHealth\ncurrentHealth $currentHealth\nisDead $isDead\nrace $race';
+    return 'name $name\nmaxHealth$maxHealth\ncurrentHealth $currentHealth\nisDead $isDead\nrace $race';
   }
 }

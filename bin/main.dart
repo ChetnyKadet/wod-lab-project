@@ -11,7 +11,8 @@ void main() {
   var player3 =
       Character.werewolfPlayer('ChadFurry', CharacterEquipment(empty, empty));
   final players = [player, player2, player3];
-  turn(players);
+  //turn(players);
+  player.useAbility(player.spellbook[1], player2);
 }
 
 void turn(List<Character> players) {
