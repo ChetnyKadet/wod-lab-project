@@ -28,7 +28,7 @@ class Character {
       : this.race = vampire,
         this.name = name,
         this.characterEquipment = characterEquipment,
-        this.spellbook = [autoAttack, claw, bite, silverShot, drainLife],
+        this.spellbook = [autoAttack, claw, silverShot, drainLife],
         this.currentHealth = (baseHealth * vampire.healthModifier).round() +
             characterEquipment.stamina * 10;
 

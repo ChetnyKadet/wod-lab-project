@@ -12,7 +12,7 @@ void main() {
       Character.werewolfPlayer('ChadFurry', CharacterEquipment(empty, empty));
   final players = [player, player2, player3];
   //turn(players);
-  player3.useAbility(player.spellbook[3], player);
+  player3.useAbility(player.spellbook[0], player);
 }
 
 void turn(List<Character> players) {
