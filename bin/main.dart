@@ -5,14 +5,14 @@ import 'dart:io';
 
 void main() {
   var player = Character.humanPlayer(
-      'SmallDickChungus', CharacterEquipment(helmet, vest));
+      'SmallDickJohnny', CharacterEquipment(helmet, vest));
   var player2 =
       Character.vampirePlayer('BuffiesBitch', CharacterEquipment(empty, vest));
   var player3 =
       Character.werewolfPlayer('ChadFurry', CharacterEquipment(empty, empty));
   final players = [player, player2, player3];
   //turn(players);
-  player.useAbility(player.spellbook[1], player2);
+  player3.useAbility(player.spellbook[3], player);
 }
 
 void turn(List<Character> players) {

@@ -69,4 +69,4 @@ const silverShot = DamageAbility(5, 10, 0, 0, 'Silver Shot');
 
 const healingMeds = HealingAbility(0, 0, 20, 0, 'healingMeds');
 const spiritFlesh = HealingAbility(0, 0, 30, 0, 'Spirit Flesh');
-const drainLife = DamageHealingAbility(0, 0, 25, 25, 'Drain Life');
+const drainLife = DamageHealingAbility(0, 0, 25, 25,'Drain Life');
