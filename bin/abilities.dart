@@ -7,8 +7,8 @@ abstract class Ability {
   final double healthDrain;
   final String name;
 
-  const Ability(
-      this.physicalDamage, this.silverDamage, this.healDamage, this.healthDrain, this.name);
+  const Ability(this.physicalDamage, this.silverDamage, this.healDamage,
+      this.healthDrain, this.name);
   void use(Character orginator, Character target);
   @override
   String toString() {
@@ -54,11 +54,10 @@ class DamageHealingAbility extends Ability {
   @override
   void use(Character orginator, Character target) {
     // TODO: implement use
-    final damage = -(physicalDamage * target.race.physicalDamageModifier +
-            silverDamage * target.race.silverDamageModifier)
-        .round();
+    final damage = -healthDrain.round();
+    final healing = healDamage.round();
     target.modifyHealth(damage);
-    orginator.modifyHealth(-damage);
+    orginator.modifyHealth(healing);
   }
 }
 
@@ -70,4 +69,4 @@ const silverShot = DamageAbility(5, 10, 0, 0, 'Silver Shot');
 const healingMeds = HealingAbility(0, 0, 20, 0, 'healingMeds');
 const spiritFlesh = HealingAbility(0, 0, 30, 0, 'Spirit Flesh');
 
-const drainLife = DamageHealingAbility(0, 0, 25, 25,'Drain Life');
+const drainLife = DamageHealingAbility(0, 0, 25, 25, 'Drain Life');
